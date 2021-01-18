@@ -4,21 +4,23 @@ const date = require('date-and-time');
 
 const { check, validationResult } = require('express-validator')
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
+// GET Home 
+router.get('/', (req, res, next) => {
   console.log('GET request for HOME page: success')
   res.render('index', { 
     title: 'Rates Calculator Webpage' 
   });
 });
 
-router.get('/form', function(req, res, next) {
+// GET Rates Settlement Calculator
+router.get('/form', (req, res, next) => {
   console.log('GET request for FORM page: success')
   res.render('form', { 
     title: 'Rates Calculator Form' 
   });
 });
 
+// POST Rates Settlement Calculator
 router.post('/form', [
   check('district_council').isLength({ min: 1 }),
   check('annual_dc_rates')
@@ -82,8 +84,8 @@ router.post('/form', [
   console.log(typeof rc)
   console.log(annualRCRates);
   console.log(typeof annualRCRates)
-  //console.log(settlementDate);
-  //console.log(typeof settlementDate)
+  console.log(settlementDate);
+  console.log(typeof settlementDate)
   console.log('---')
 
   console.log('---')
@@ -111,6 +113,35 @@ router.post('/form', [
   })
 })
 
+// GET GST Calculator
+router.get('/gst_calculator', (req, res, next) => {
+  console.log('GET request for GST Calculator: success')
+  res.render('gst_calculator');
+});
+
+// POST GST Calculator
+
+// GET Interest Calculator
+router.get('/interest_calculator', (req, res, next) => {
+  console.log('GET request for Interest Calculator: success')
+  res.render('interest_calculator');
+});
+
+// POST Interest Calculator
+
+// GET About
+router.get('/about', (req, res, next) => {
+  console.log('GET request for ABOUT page: success')
+  res.render('about');
+});
+
+// GET Contact
+router.get('/contact', (req, res, next) => {
+  console.log('GET request for CONTACT page: success')
+  res.render('contact');
+});
+
+// GET Output
 router.get('/output', (req, res, next) => {
   console.log('GET request for OUTPUT page: success')
   res.render('output'/*, {
