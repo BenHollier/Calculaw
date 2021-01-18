@@ -55,8 +55,9 @@ router.post('/form', [
   const purchaserDaysDC = calculate.calculatePurchaserDays(ratingSystemDC, month, vendorDaysDC, isLeapYear);
   const vendorDaysRC = calculate.calculateVendorDays(ratingSystemRC, month, day, isLeapYear);
   const purchaserDaysRC = calculate.calculatePurchaserDays(ratingSystemRC, month, vendorDaysRC, isLeapYear);
-  const dailyDCRates = calculate.dailyRate(annualDCRates);
-  const dailyRCRates = calculate.dailyRate(annualRCRates);
+  const daysInYear = calculate.daysInYear(isLeapYear);
+  const dailyDCRates = calculate.dailyRate(annualDCRates, daysInYear);
+  const dailyRCRates = calculate.dailyRate(annualRCRates, daysInYear);
 
   const pDCRates = calculate.shareOfRates(purchaserDaysDC, dailyDCRates);
   const pRCRates = calculate.shareOfRates(purchaserDaysRC, dailyRCRates);

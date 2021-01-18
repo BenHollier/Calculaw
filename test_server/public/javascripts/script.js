@@ -189,15 +189,15 @@ function calculatePurchaserDays(ratingSystem, month, vendorDays, isLeapYear) {
 }
 
 //Calculates how many days in rating year based on whether it's a Council leap year 
-function daysInYear() { 
-  if (calculateIsLeapYear(year, month) === true) {
+function daysInYear(isLeapYear) { 
+  if (isLeapYear) {
       return 366;
   } else {return 365;}
   }
   
 //Calculates daily rate that can be used to calcualte daily district level rates. Uses implicit return and rounds to 2 decimal places. 
-function dailyRate(number) {
-  return number/daysInYear();
+function dailyRate(number, daysInYear) {
+  return number/daysInYear;
 }
  
 //Calculates purhcaser's District level rates based on daily rate and purchaser days in period 
