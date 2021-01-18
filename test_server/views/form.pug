@@ -1,0 +1,124 @@
+extends layout
+
+block content
+    h1.title Rates Settlement Calculator
+
+    div
+        h2 The reliable way to calculate how rates are shared on settlement
+    
+    br
+    br
+    
+    form#rates-calculator-form(method = 'POST' action = '/form')
+
+        div
+            h3 Step 1 | Select District Council and enter Annual Rates
+        
+        span
+            label(for = "district_council") District Council:
+            select#district_council(name = "district_council", required)
+                option(value="ashburtondc") Ashburton District Council 
+                option(value="aucklandc") Auckland Council 
+                option(value="bullerdc") Buller District Council 
+                option(value="cartertondc") Carterton District Council 
+                option(value="centrahawkesbaydc") Central Hawke’s Bay District Council 
+                option(value="centralotagodc") Central Otago District Council 
+                option(value="chathamislandsc") Chatham Islands Council 
+                option(value="christchurchcc") Christchurch City Council 
+                option(value="cluthadc") Clutha District Council 
+                option(value="dunedindc") Dunedin City Council 
+                option(value="farnorthdc") Far North District Council 
+                option(value="gisbornedc") Gisborne District Council 
+                option(value="goredc") Gore District Council 
+                option(value="greydc") Grey District Council 
+                option(value="hamiltoncc") Hamilton City Council 
+                option(value="hastingsdc") Hastings District Council 
+                option(value="haurakidc") Hauraki District Council 
+                option(value="horowhenuadc") Horowhenua District Council 
+                option(value="hurunuidc") Hurunui District Council 
+                option(value="huttcc") Hutt City Council 
+                option(value="invercargillcc") Invercargill City Council 
+                option(value="kaikouradc") Kaikoura District Council 
+                option(value="kaiparadc") Kaipara District Council 
+                option(value="kapiticoastdc") Kapiti Coast District Council 
+                option(value="kaweraudc") Kawerau District Council 
+                option(value="mackenziedc") Mackenzie District Council 
+                option(value="manawatudc") Manawatu District Council 
+                option(value="marlboroughdc") Marlborough District Council 
+                option(value="mastertondc") Masterton District Council 
+                option(value="matamatapiakodc") Matamata-Piako District Council 
+                option(value="napiercc") Napier City Council 
+                option(value="nelsoncc") Nelson City Council 
+                option(value="newplymouthdc") New Plymouth District Council 
+                option(value="opotokidc") Opotoki District Council 
+                option(value="otorohangadc") Otorohanga District Council 
+                option(value="palmerstonnorthcc") Palmerston North City Council 
+                option(value="poriruacc") Porirua City Council 
+                option(value="queenstownlakesdc") Queenstown-Lakes District Council 
+                option(value="rangitikeidc") Rangitikei District Council 
+                option(value="rotoruadc") Rotorua District Council 
+                option(value="ruapehudc") Ruapehu District Council 
+                option(value="selwyndc") Selwyn District Council 
+                option(value="southtaranakidc") South Taranaki District Council 
+                option(value="southwaikatodc") South Waikato District Council 
+                option(value="southwairarapadc") South Wairarapa District Council 
+                option(value="southlanddc") Southland District Council 
+                option(value="stratforddc") Stratford District Council 
+                option(value="tararuadc") Tararua District Council 
+                option(value="tasmandc") Tasman District Council 
+                option(value="taupodc") Taupo District Council 
+                option(value="taurangacc") Tauranga City Council 
+                option(value="thamescoromandeldc") Thames-Coromandel District Council 
+                option(value="timarudc") Timaru District Council 
+                option(value="upperhuttcc") Upper Hutt City Council 
+                option(value="waikatodc") Waikato District Council 
+                option(value="waimakariridc") Waimakariri District Council 
+                option(value="waimatedc") Waimate District Council 
+                option(value="waipadc") Waipa District Council 
+                option(value="wairoadc") Wairoa District Council 
+                option(value="waitakidc") Waitaki District Council 
+                option(value="waitomodc") Waitomo District Council 
+                option(value="wellingtoncc") Wellington City Council 
+                option(value="westernbopdc") Western Bay of Plenty District Council 
+                option(value="westlanddc") Westland District Council 
+                option(value="whakatanedc") Whakatane District Council 
+                option(value="whanganuidc") Whanganui District Council 
+                option(value="whangareidc") Whangarei District Council 
+
+            label(for = "annual_dc_rates") Annual Rates:
+            input#annual_dc_rates(type = "number", name = "annual_dc_rates", min = "0", placeholder = "0.00", step = ".01", required)
+
+        br
+        br
+
+        div
+            h3 Step 2 | Select Regional Council and enter Annual Rates 
+        
+        span
+            label(for = "regional_council") Regional Council
+            select#regional_council(name = "regional_council")
+                option(value = "boprc") Bay of Plenty Regional Council
+                option(value = "canterburyrc") Environment Canterbury
+                option(value = "hawkesbayrc") Hawke’s Bay Regional Council
+                option(value = "manawatuwanganuirc") Manawatu-Wanganui Regional Council
+                option(value = "northlandrc") Northland Regional Council
+                option(value = "otagorc") Otago Regional Council
+                option(value = "southlandrc") Environment Southland
+                option(value = "taranakirc") Taranaki Regional Council
+                option(value = "waikatorc") Waikato Regional Council
+                option(value = "wellingtonrc") Wellington Regional Council
+                option(value = "westcoastrc") West Coast Regional Council
+
+            label(for = "annual_rc_rates") Annual Rates:
+            input#annual_rc_rates(type = "number" name = "annual_rc_rates", placeholder = "0.00" step = ".01")
+
+        div
+            h3 Step 3 | Enter settlement date
+
+        label(for = "settlement_date") Settlement Date:
+        input#settlement_date(type="date", name = "settlement_date", required)
+
+        br
+        br
+        
+        input(type = "submit" value = "Go")

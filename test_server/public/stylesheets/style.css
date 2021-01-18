@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Josefin Sans";
+  text-align: center;
+  background-color: white; 
+
+}
+.navigation a {
+  color: grey; 
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  line-height: 49px;
+  height: 49px; 
+  text-decoration: none;
+  border: 1px solid white; 
+  text-align: center;
+  margin-right: 25px;
+}
+.navigation a:hover {
+  background-color: rgb(228, 226, 226);
+  border: 1px solid white; 
+  color: #244431
+}
+h2 {
+  color: #244431;;
+  margin: 15px; 
+}
+h3 {
+  color: #244431;
+  font-size: 25px;
+  margin: 10px;  
+}
+input {
+  color: #244431; 
+  padding: 15px;
+  background: transparent;
+  min-width: 15%;
+  border: 0px;
+  border-radius: 4px;
+  font-size: 19px;
+  text-align-last: left;
+}
+label {
+  color: white;
+  font-size: 22px;
+  padding: 5px;
+}
+.navigation {
+  background-color: white; 
+  border-bottom: #244431 1px solid;
+  height: 50px;
+  width: 100%;
+  font-size: 1.3rem;
+  text-align: right;
+}
+::placeholder {
+  color: #244431;
+  text-align: center;
+}
+select {
+  background: transparent;
+  color: #244431;
+  font-size: 19px;
+  padding: 15px;
+  width: min-content;
+  border: 0px;
+  border-radius: 4px;
+  text-align-last: left;
+}
+.submit {
+  border: 1px solid white;
+  font-size: 25px;
+  color: #244431;
+  background: transparent;
+  width: 150px;
+  height: 55px;
+  text-align-last: center; 
+  border-radius: 5px;
+}
+.submit:hover {
+  background-color: #244431; 
+  color: white; 
+  opacity: 0.5; 
+  border: 1px solid white; 
+}
+.title {
+  color: #244431;
+  padding: 0;
+  font-size: 45px;
+  margin: 20px; 
+}
+.output-container {
+  border: 1px #244431 solid; 
+  min-height: 200px;
+  min-width: 500px;
+  border-radius: 5px;
+  margin: 25px 150px;
+}
+.council-heading {
+  color: #244431;
+  font-size: 30px; 
+}
+.output {
+  color: #244431;
+  font-size: 20px;
+  margin: 10px; 
+}
