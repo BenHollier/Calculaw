@@ -35,9 +35,7 @@ router.post('/form', [
     return res.status(422).json({ errors: errors.array() })
   }
 
-  console.log('---')
   console.log('POST request to FORM page: success')
-  console.log('---')
 
   const calculate = require('../public/javascripts/script.js')
   
@@ -64,37 +62,7 @@ router.post('/form', [
   const pDCRates = calculate.shareOfRates(purchaserDaysDC, dailyDCRates);
   const pRCRates = calculate.shareOfRates(purchaserDaysRC, dailyRCRates);
   const vDCRates = calculate.shareOfRates(vendorDaysDC, dailyDCRates);
-  const vRCRates = calculate.shareOfRates(vendorDaysRC, dailyRCRates);
-
-  console.log('---')
-  console.log(isLeapYear)
-  console.log(ratingSystemDC)
-  console.log(settlementDate)
-  console.log('---')
-
-  console.log('---')
-  console.log(req.body)
-  console.log('---')
-
-  console.log(dc);
-  console.log(typeof dc)
-  console.log(annualDCRates);
-  console.log(typeof annualDCRates)
-  console.log(rc);
-  console.log(typeof rc)
-  console.log(annualRCRates);
-  console.log(typeof annualRCRates)
-  console.log(settlementDate);
-  console.log(typeof settlementDate)
-  console.log('---')
-
-  console.log('---')
-  console.log(pDCRates)
-  console.log(pRCRates)
-  console.log(vDCRates)
-  console.log(vRCRates)
-  console.log('---')
-   
+  const vRCRates = calculate.shareOfRates(vendorDaysRC, dailyRCRates);  
 
   res.render('output', {
     dcInput: dc,
@@ -128,9 +96,7 @@ router.post('/gst_calculator', [
     return res.status(422).json({ errors: errors.array() })
   }
 
-  console.log('---')
   console.log('POST request to gst_calculator page: success')
-  console.log('---')
 
   const gstCalcs = require('../public/javascripts/gst_calc.js')
   
@@ -139,19 +105,6 @@ router.post('/gst_calculator', [
   const gst = gstCalcs.calculateGST(amount, method).toFixed(2);
   const subtotal = gstCalcs.calculateSubtotal(amount, method).toFixed(2);
   const total = gstCalcs.calculateTotal(amount, method, subtotal).toFixed(2);
-
-
-  console.log('---')
-  console.log(req.body.amount);
-  console.log(req.body.GST_method);
-  console.log('---')
-
-  console.log('---')
-  console.log(amount);
-  console.log(typeof amount);
-  console.log(method);
-  console.log(typeof method);
-  console.log('---');
 
   res.render('gst_calculator_output', {
     subtotal: subtotal,
@@ -176,17 +129,21 @@ router.post('/interest_calculator', [
     return res.status(422).json({ errors: errors.array() })
   }
 
-  console.log('---')
   console.log('POST request to interest_calculator page: success')
-  console.log('---')
 
   const interestCalcs = require('../public/javascripts/interest_calcs.js')
   
-  const debt = parseFloat(req.body.debt);
-  const interestRate = parseFloat(req.body.interest_rate);  
+  const debt = parseFloat(req.body.debt, 10);
+  const interestRate = parseFloat(req.body.interest_rate, 10);  
   const startDate = req.body.start_date;
   const endDate = req.body.end_date; 
-  const dayStart = parseInt(startDate.slice(8, 10), 10)
+
+  console.log(debt + " " + typeof debt);
+  console.log(interestRate + " " + typeof interestRate);
+  console.log(startDate + " " + typeof startDate);
+  console.log(endDate + " " + typeof endDate);
+
+  /*const dayStart = parseInt(startDate.slice(8, 10), 10)
   const monthStart = parseInt(startDate.slice(5, 7), 10);
   const yearStart = parseInt(startDate.slice(0, 4), 10);
   const dayEnd = parseInt(endDate.slice(8, 10), 10)
@@ -198,13 +155,13 @@ router.post('/interest_calculator', [
   const daysOverdue = interestCalcs.daysOverdue(start, end);
   const dailyInterest = interestCalcs.dailyInterest(debt, interestRate).toFixed(2);
   const interestAmount = interestCalcs.interestAmount(daysOverdue, dailyInterest).toFixed(2);
-  const totalDue = interestCalcs.totalDebt(debt, interestAmount).toFixed(2);
+  const totalDue = interestCalcs.totalDebt(debt, interestAmount).toFixed(2);*/
 
-  res.render('interest_calculator_output', {
+  res.render('interest_calculator_output', /*{
     subtotal: subtotal,
     gst: gst,
     total: totalDue,
-  })
+  }*/)
 })
 
 // GET About
