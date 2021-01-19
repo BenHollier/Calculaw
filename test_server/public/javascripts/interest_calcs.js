@@ -1,19 +1,25 @@
-const daysOverdue = (start, end) => {
-    let timeDifference = start.getTime() - end.getTime();
-    let dayDifference = timeDifference / (1000 * 60 * 60 * 24);
-    return dayDifference; 
+const daysOverdue = (startDate, endDate) => {
+    const start = new Date(startDate) 
+    const end = new Date(endDate) 
+    let dayCount = 0
+  
+    while (end > start) {
+      dayCount++
+      start.setDate(start.getDate() + 1)
+    }
+return Number(dayCount);
 }
-
+    
 const dailyInterest = (debt, interestRate) => {
-    return debt * (interestRate / 100) * 365;
+    return Number(debt * (interestRate / 100) / 365);
 };
 
 const interestAmount = (daysOverdue, dailyInterest) => {
-    return daysOverdue * dailyInterest; 
+    return Number(daysOverdue * dailyInterest); 
 };
 
 const totalDebt = (debt, interestAmount) => {
-    return debt + interestAmount; 
+    return Number(debt + interestAmount); 
 };
 
 

@@ -3,15 +3,15 @@ extends layout
 block content
     main 
 
-        h1 Civil Debt Interest Calculator
+        h1.title Debt Interest Calculator
 
         div.response
             section.output-container
 
-                p.output_small Debt: $#{debt};
+                p.output_small Debt: $#{debt}
 
-                p.output_small Interest: $#{interest};
+                p.output_small Interest: $#{interest}
 
-                p.output_small Total: $#{totalDue};
+                p#output_total Total: $#{totalDue}
 
     include ./footer 

@@ -1,12 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const date = require('date-and-time');
 
 const { check, validationResult } = require('express-validator')
 
 // GET Home 
 router.get('/', (req, res, next) => {
-  console.log('GET request for HOME page: success')
   res.render('index', { 
     title: 'Rates Calculator Webpage' 
   });
@@ -14,7 +12,6 @@ router.get('/', (req, res, next) => {
 
 // GET Rates Settlement Calculator
 router.get('/form', (req, res, next) => {
-  console.log('GET request for FORM page: success')
   res.render('form', { 
     title: 'Rates Calculator Form' 
   });
@@ -22,20 +19,18 @@ router.get('/form', (req, res, next) => {
 
 // POST Rates Settlement Calculator
 router.post('/form', [
-  check('district_council').isLength({ min: 1 }),
-  check('annual_dc_rates')
-  .isNumeric()
-  .withMessage('Must be a number'),
-  check('regional_council').isLength({ min: 1 }),
-  check('annual_rc_rates').isNumeric(),
-  check('settlement_date').isDate()
+  //check('district_council').isLength({ min: 1 }),
+  //check('annual_dc_rates')
+  //.isNumeric()
+  //.withMessage('Must be a number'),
+  //check('regional_council').isLength({ min: 1 }),
+  //check('annual_rc_rates').isNumeric(),
+  //check('settlement_date').isDate()
 ], (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() })
   }
-
-  console.log('POST request to FORM page: success')
 
   const calculate = require('../public/javascripts/script.js')
   
@@ -83,7 +78,6 @@ router.post('/form', [
 
 // GET GST Calculator
 router.get('/gst_calculator', (req, res, next) => {
-  console.log('GET request for GST Calculator: success')
   res.render('gst_calculator');
 });
 
@@ -95,8 +89,6 @@ router.post('/gst_calculator', [
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() })
   }
-
-  console.log('POST request to gst_calculator page: success')
 
   const gstCalcs = require('../public/javascripts/gst_calc.js')
   
@@ -115,7 +107,6 @@ router.post('/gst_calculator', [
 
 // GET Interest Calculator
 router.get('/interest_calculator', (req, res, next) => {
-  console.log('GET request for Interest Calculator: success')
   res.render('interest_calculator');
 });
 
@@ -128,57 +119,37 @@ router.post('/interest_calculator', [
   if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() })
   }
-
-  console.log('POST request to interest_calculator page: success')
-
-  const interestCalcs = require('../public/javascripts/interest_calcs.js')
   
+  const interestCalcs = require('../public/javascripts/interest_calcs.js')
+
   const debt = parseFloat(req.body.debt, 10);
   const interestRate = parseFloat(req.body.interest_rate, 10);  
   const startDate = req.body.start_date;
   const endDate = req.body.end_date; 
+  const daysOverdue = interestCalcs.daysOverdue(startDate, endDate);
+  const dailyInterest = interestCalcs.dailyInterest(debt, interestRate);
+  const interest = interestCalcs.interestAmount(daysOverdue, dailyInterest);
+  const totalDue = interestCalcs.totalDebt(debt, interest);
 
-  console.log(debt + " " + typeof debt);
-  console.log(interestRate + " " + typeof interestRate);
-  console.log(startDate + " " + typeof startDate);
-  console.log(endDate + " " + typeof endDate);
-
-  /*const dayStart = parseInt(startDate.slice(8, 10), 10)
-  const monthStart = parseInt(startDate.slice(5, 7), 10);
-  const yearStart = parseInt(startDate.slice(0, 4), 10);
-  const dayEnd = parseInt(endDate.slice(8, 10), 10)
-  const monthEnd = parseInt(endDate.slice(5, 7), 10);
-  const yearEnd = parseInt(endDate.slice(0, 4), 10);
-  const start = newDate(yearStart, monthStart, dayStart);
-  const end = newDate(yearEnd, monthEnd, dayEnd);
-
-  const daysOverdue = interestCalcs.daysOverdue(start, end);
-  const dailyInterest = interestCalcs.dailyInterest(debt, interestRate).toFixed(2);
-  const interestAmount = interestCalcs.interestAmount(daysOverdue, dailyInterest).toFixed(2);
-  const totalDue = interestCalcs.totalDebt(debt, interestAmount).toFixed(2);*/
-
-  res.render('interest_calculator_output', /*{
-    subtotal: subtotal,
-    gst: gst,
-    total: totalDue,
-  }*/)
+  res.render('interest_calculator_output', {
+    debt: debt.toFixed(2),
+    interest: interest.toFixed(2),
+    totalDue: totalDue.toFixed(2),
+  })
 })
 
 // GET About
 router.get('/about', (req, res, next) => {
-  console.log('GET request for ABOUT page: success')
   res.render('about');
 });
 
 // GET Contact
 router.get('/contact', (req, res, next) => {
-  console.log('GET request for CONTACT page: success')
   res.render('contact');
 });
 
 // GET Output
 router.get('/output', (req, res, next) => {
-  console.log('GET request for OUTPUT page: success')
   res.render('output'/*, {
     dcInput: 'RDC',
     dcRatesInput: 2000,
