@@ -11,6 +11,12 @@ body {
   font-family: "Josefin Sans";
   text-align: center;
   background-color: white; 
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1;
 }
 .navigation {
   background-color: white; 
@@ -18,6 +24,7 @@ body {
   width: 100%;
   font-size: 1.3rem;
   display: flex;
+  flex: 0;
   justify-content: center;
 }
 .navigation a {
@@ -199,12 +206,11 @@ select {
 .footer {
   background-color: white; 
   border-top: #244431 1px solid;
-  max-height: 50px;
+  height: 1.3rem;
   width: 100%;
   font-size: 1.3rem;
   text-align: center;
-  position: fixed;
-  bottom: 0; 
+  flex: 0;
 }
 .footer a {
   color: grey; 

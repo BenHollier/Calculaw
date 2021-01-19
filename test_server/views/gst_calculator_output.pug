@@ -1,16 +1,17 @@
 extends layout
 
 block content
+    main
 
-    h1.title GST Calculator
+        h1.title GST Calculator
 
-    div.response
-        section.output-container
+        div.response
+            section.output-container
 
-            p.output Subtotal: $#{subtotal}
+                p.output Subtotal: $#{subtotal}
 
-            p.output GST: $#{gst}
+                p.output GST: $#{gst}
 
-            p.output Total: $#{total}
+                p.output Total: $#{total}
 
     include ./footer 

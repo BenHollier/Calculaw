@@ -1,26 +1,26 @@
 extends layout
 
 block content
+    main
+        h1.title_calculator Debt Interest Calculator
 
-    h1.title_calculator Debt Interest Calculator
+        div.form
 
-    div.form
+            form#interest-calculator-form(method = 'POST' action = '/interest_calculator')
 
-        form#interest-calculator-form(method = 'POST' action = '/interest_calculator')
+            label(for = "debt") Debt:
+            input#debt.input_interest(type = "number", name = "debt", min = "0", placeholder = "0.00", step = ".01",required)      
 
-          label(for = "debt") Debt:
-          input#debt.input_interest(type = "number", name = "debt", min = "0", placeholder = "0.00", step = ".01",required)      
+            label(for = "interest_rate") Interest Rate: 
+            input#interest_rate.input_interest(type = "number", name = "interest_Rate", min = "0", placeholder = "0.0%", step = ".01")        
 
-          label(for = "interest_rate") Interest Rate: 
-          input#interest_rate.input_interest(type = "number", name = "interest_Rate", min = "0", placeholder = "0.0%", step = ".01")        
+            label(for = "start_date") Start Date:
+            input#start_date.input_interest(type="date", name = "start_date")
 
-          label(for = "start_date") Start Date:
-          input#start_date.input_interest(type="date", name = "start_date")
+            label(for = "end_date") End Date:
+            input#end_date.input_interest(type="date", name = "end_date")
 
-          label(for = "end_date") End Date:
-          input#end_date.input_interest(type="date", name = "end_date")
-
-          input.submit(type = "submit", value = "Go")
+            input.submit(type = "submit", value = "Go")
 
     include ./footer
 

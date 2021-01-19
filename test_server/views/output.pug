@@ -2,32 +2,31 @@ extends layout
 
 block content
     main
-        br
-        br
+
         h1.title Rates Settlement Calculator
 
-    div.response
-        section.output-container
-            h2.council-heading District Council
-            article
-                h3 Purchaser
-                p.output#purchaser-dc-days Days: #{pDaysDC} 
-                p.output#purchaser-dc-rates Share: $#{pShareDC}
-            article
-                h3 Vendor
-                p.output#vendor-dc-days Days: #{vDaysDC}
-                p.output#vendor-dc-rates Share: $#{vShareDC}
+        div.response
+            section.output-container
+                h2.council-heading District Council
+                article
+                    h3 Purchaser
+                    p.output#purchaser-dc-days Days: #{pDaysDC} 
+                    p.output#purchaser-dc-rates Share: $#{pShareDC}
+                article
+                    h3 Vendor
+                    p.output#vendor-dc-days Days: #{vDaysDC}
+                    p.output#vendor-dc-rates Share: $#{vShareDC}
 
-    div.response
-        section.output-container
-            h2.council-heading Regional Council
-            article
-                h3 Purchaser
-                p.output#purchaser-rc-days Days: #{pDaysRC} 
-                p.output#purchaser-rc-rates Share: $#{pShareRC}
-            article
-                h3 Vendor
-                p.output#vendor-rc-days Days: #{vDaysRC}
-                p.output#vendor-rc-rates Share: $#{vShareRC}
+        div.response
+            section.output-container
+                h2.council-heading Regional Council
+                article
+                    h3 Purchaser
+                    p.output#purchaser-rc-days Days: #{pDaysRC} 
+                    p.output#purchaser-rc-rates Share: $#{pShareRC}
+                article
+                    h3 Vendor
+                    p.output#vendor-rc-days Days: #{vDaysRC}
+                    p.output#vendor-rc-rates Share: $#{vShareRC}
 
     include ./footer  
