@@ -65,8 +65,8 @@ h2 {
 }
 h3 {
   color: #244431;
-  font-size: 2rem;
-  margin: 10px; 
+  font-size: 1.8rem;
+  margin: 0.7rem; 
   width: 100%; 
 }
 h3 a {
@@ -181,20 +181,35 @@ select {
 }
 
 .output-container {
-  border: 1px #244431 solid; 
   min-height: 200px;
   min-width: 500px;
   border-radius: 5px;
   margin: 25px 150px;
 }
 .council-heading {
+  margin: auto;
   color: #244431;
-  font-size: 30px; 
+  font-size: 2rem;
+  font-weight: 900;
+  border-bottom: #244431 1px solid;
+  max-width: 25rem; 
 }
 .output {
   color: #244431;
   font-size: 20px;
   margin: 10px; 
+}
+.output_GST {
+  color: #244431;
+  font-size: 2rem;
+  margin: 3rem auto;
+}
+#output_total {
+  color: #244431;
+  font-size: 2rem;
+  margin: 3rem auto;
+  border-bottom: 1px solid #244431;
+  max-width: 20rem; 
 }
 .paragraph-container {
   font-size: 1.5rem;

@@ -6,18 +6,18 @@ block content
 
         div.form
         
-            form#gst-calculator-form(method = 'POST' action = '/gst_calculator')
+            form#gst-calculator-form(method = 'POST', action = '/gst_calculator')
             
-            label(for = "amount") Amount:
-            input#amount.input_interest(type = "number", name = "amount" min = "0" placeholder = "0.00", step = ".01", required)
+                label(for = "amount") Amount:
+                input#amount.input_interest(type = "number", name = "amount" min = "0" placeholder = "0.00", step = ".01", required)
 
-            div.radio
-                label(for = "add_GST") Add GST
-                input#add_GST.input_interest(type = "radio", name = "GST_method", value = "add_GST" required)
+                div.radio
+                    label(for = "add_GST") Add GST
+                    input#add_GST.input_interest(type = "radio", name = "GST_method", value = "add_GST" required)
 
-                label(for = "subtract_GST") Subtract GST
-                input#subtract_GST.input_interest(type = "radio", name = "GST_method", value = "subtract_GST")
+                    label(for = "subtract_GST") Subtract GST
+                    input#subtract_GST.input_interest(type = "radio", name = "GST_method", value = "subtract_GST")
 
-            input.submit(type = "submit", value = "Go")
+                input.submit(type = "submit", value = "Go")
 
     include ./footer  
