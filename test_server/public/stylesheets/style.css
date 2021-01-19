@@ -2,30 +2,55 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: grey; 
+}
+html {
+  font-size: 16px; 
 }
 body {
   font-family: "Josefin Sans";
   text-align: center;
   background-color: white; 
-
+}
+.navigation {
+  background-color: white; 
+  border-bottom: #244431 1px solid;
+  width: 100%;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
 }
 .navigation a {
   color: grey; 
   text-decoration: none;
   position: relative;
   display: inline-block;
-  width: 120px;
-  line-height: 49px;
-  height: 49px; 
-  text-decoration: none;
+  min-width: 10%;
   border: 1px solid white; 
   text-align: center;
   margin-right: 25px;
+  padding: 1% 1%;
 }
 .navigation a:hover {
   background-color: rgb(228, 226, 226);
   border: 1px solid white; 
   color: #244431
+}
+.title {
+  color: #244431;
+  padding: 3%;
+  font-size: 3rem;
+  margin: 20px; 
+}
+.title_calculator {
+  color:#244431;
+  padding: 0.3rem;
+  font-size: 3rem; 
+  margin: 3% 3% 1% 3%; 
+}
+.slogan {
+  padding-bottom: 3%;
+  font-size: 2rem; 
 }
 h2 {
   color: #244431;;
@@ -33,10 +58,53 @@ h2 {
 }
 h3 {
   color: #244431;
-  font-size: 25px;
-  margin: 10px;  
+  font-size: 2rem;
+  margin: 10px; 
+  width: 100%; 
 }
-input {
+h3 a {
+  text-decoration: none; 
+  color:#244431;
+}
+.form {
+  margin: 2% 10%;
+
+}
+.calculators-container {
+  margin: 4% auto;
+  width: 90%;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+}
+.calculator-container {
+  background-color: white; 
+  color: #244431;
+  border: 1px #244431 solid;
+  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em 1.5em;
+  min-width: 200px;
+  max-width: 250px;
+  min-height: 200px;
+  max-height: 250px;
+  margin: auto; 
+  line-height: 2.4em;
+}
+.calculator-container:hover {
+  background-color: rgb(228, 226, 226);
+  color: #244431;
+}
+.step-container {
+  margin: 5% auto; 
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.input {
   color: #244431; 
   padding: 15px;
   background: transparent;
@@ -46,18 +114,34 @@ input {
   font-size: 19px;
   text-align-last: left;
 }
-label {
-  color: white;
-  font-size: 22px;
-  padding: 5px;
+.input_interest {
+  color:#244431;
+  background: transparent;
+  border: 0px;
+  border-bottom: 1px solid #244431; 
+  border-radius: 0;
+  font-size: 1.2rem; 
+  padding: 1% 2%;
+  margin: auto; 
+  display: block; 
+  text-align-last: center;
 }
-.navigation {
-  background-color: white; 
-  border-bottom: #244431 1px solid;
-  height: 50px;
-  width: 100%;
-  font-size: 1.3rem;
-  text-align: right;
+.radio {
+  border-radius: 5px;
+  padding: 3% 2%;
+}
+.radio label, .radio input {
+  display: inline-block;
+  min-width: 3rem;
+  margin: 2% 1%;
+}
+label {
+  color: #244431;
+  font-size: 1.6rem;
+  font-weight: 900;
+  padding: 1% 2% 0% 2%; 
+  display: block; 
+  margin: 3% 2% 0% 2%
 }
 ::placeholder {
   color: #244431;
@@ -74,27 +158,21 @@ select {
   text-align-last: left;
 }
 .submit {
-  border: 1px solid white;
+  border: 1px solid #244431;
   font-size: 25px;
-  color: #244431;
+  color: grey;
   background: transparent;
-  width: 150px;
-  height: 55px;
+  min-width: 10rem;
+  min-height: 3.8rem;
   text-align-last: center; 
   border-radius: 5px;
+  margin: 4% auto;
 }
 .submit:hover {
-  background-color: #244431; 
-  color: white; 
-  opacity: 0.5; 
-  border: 1px solid white; 
+  background-color: rgb(228, 226, 226); 
+  color: #244431; 
 }
-.title {
-  color: #244431;
-  padding: 0;
-  font-size: 45px;
-  margin: 20px; 
-}
+
 .output-container {
   border: 1px #244431 solid; 
   min-height: 200px;
@@ -110,4 +188,39 @@ select {
   color: #244431;
   font-size: 20px;
   margin: 10px; 
+}
+.paragraph-container {
+  font-size: 1.5rem;
+  margin: 2% 10%; 
+}
+.paragraph-container p {
+  margin: 3% 2%; 
+}
+.footer {
+  background-color: white; 
+  border-top: #244431 1px solid;
+  max-height: 50px;
+  width: 100%;
+  font-size: 1.3rem;
+  text-align: center;
+  position: fixed;
+  bottom: 0; 
+}
+.footer a {
+  color: grey; 
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  min-width: 10%;
+  line-height: 49px;
+  height: 49px; 
+  border: 1px solid white; 
+  text-align: center;
+  margin-right: 25px;
+  padding: 0% 1%;
+}
+.footer a:hover {
+  background-color: rgb(228, 226, 226);
+  border: 1px solid white; 
+  color: #244431
 }

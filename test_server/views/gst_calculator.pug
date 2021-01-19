@@ -1,5 +1,22 @@
 extends layout
 
 block content
-    h1 GST Calculator
-    h2 Coming Soon
+    h1.title_calculator GST Calculator
+
+    div.form
+      
+        form#gst-calculator-form(method = 'POST' action = '/gst_calculator')
+        
+          label(for = "amount") Amount:
+          input#amount.input_interest(type = "number", name = "amount" min = "0" placeholder = "0.00", step = ".01", required)
+
+          div.radio
+            label(for = "add_GST") Add GST
+            input#add_GST.input_interest(type = "radio", name = "GST_method", value = "add_GST" required)
+
+            label(for = "subtract_GST") Subtract GST
+            input#subtract_GST.input_interest(type = "radio", name = "GST_method", value = "subtract_GST")
+
+          input.submit(type = "submit", value = "Go")
+
+    include ./footer  

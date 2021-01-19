@@ -1,0 +1,16 @@
+extends layout
+
+block content
+
+    h1.title GST Calculator
+
+    div.response
+        section.output-container
+
+            p.output Subtotal: $#{subtotal}
+
+            p.output GST: $#{gst}
+
+            p.output Total: $#{total}
+
+    include ./footer 

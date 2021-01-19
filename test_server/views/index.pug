@@ -1,5 +1,17 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1.title Calculaw
+  h2.slogan Handy Calculators for Legal Professionals
+
+  section.calculators-container
+    article.calculator-container
+      h3 #[a(href = "/gst_calculator" target = "_self") GST Calculator]
+  
+    article.calculator-container 
+      h3 #[a(href = "/form" target = "_self") Settlement Rates Calculator] 
+
+    article.calculator-container 
+      h3 #[a(href = "/interest_calculator" target = "_self") Debt Interest Calculator]
+  
+  include ./footer  

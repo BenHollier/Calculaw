@@ -1,0 +1,16 @@
+extends layout
+
+block content
+
+    h1 Civil Debt Interest Calculator
+
+    div.response
+        section.output-container
+
+            p.output Debt: $#{debt};
+
+            p.output Interest: $#{interest};
+
+            p.output Total: $#{totalDue};
+
+    include ./footer 

@@ -120,6 +120,45 @@ router.get('/gst_calculator', (req, res, next) => {
 });
 
 // POST GST Calculator
+router.post('/gst_calculator', [
+  check('amount').isNumeric(),
+], (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() })
+  }
+
+  console.log('---')
+  console.log('POST request to gst_calculator page: success')
+  console.log('---')
+
+  const gstCalcs = require('../public/javascripts/gst_calc.js')
+  
+  const amount = parseFloat(req.body.amount, 10);
+  const method = req.body.GST_method;
+  const gst = gstCalcs.calculateGST(amount, method).toFixed(2);
+  const subtotal = gstCalcs.calculateSubtotal(amount, method).toFixed(2);
+  const total = gstCalcs.calculateTotal(amount, method, subtotal).toFixed(2);
+
+
+  console.log('---')
+  console.log(req.body.amount);
+  console.log(req.body.GST_method);
+  console.log('---')
+
+  console.log('---')
+  console.log(amount);
+  console.log(typeof amount);
+  console.log(method);
+  console.log(typeof method);
+  console.log('---');
+
+  res.render('gst_calculator_output', {
+    subtotal: subtotal,
+    gst: gst,
+    total: total,
+  })
+})
 
 // GET Interest Calculator
 router.get('/interest_calculator', (req, res, next) => {
@@ -128,6 +167,45 @@ router.get('/interest_calculator', (req, res, next) => {
 });
 
 // POST Interest Calculator
+router.post('/interest_calculator', [
+  //check('debt').isNumeric(),
+  //check('amount').isNumeric(),
+], (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() })
+  }
+
+  console.log('---')
+  console.log('POST request to interest_calculator page: success')
+  console.log('---')
+
+  const interestCalcs = require('../public/javascripts/interest_calcs.js')
+  
+  const debt = parseFloat(req.body.debt);
+  const interestRate = parseFloat(req.body.interest_rate);  
+  const startDate = req.body.start_date;
+  const endDate = req.body.end_date; 
+  const dayStart = parseInt(startDate.slice(8, 10), 10)
+  const monthStart = parseInt(startDate.slice(5, 7), 10);
+  const yearStart = parseInt(startDate.slice(0, 4), 10);
+  const dayEnd = parseInt(endDate.slice(8, 10), 10)
+  const monthEnd = parseInt(endDate.slice(5, 7), 10);
+  const yearEnd = parseInt(endDate.slice(0, 4), 10);
+  const start = newDate(yearStart, monthStart, dayStart);
+  const end = newDate(yearEnd, monthEnd, dayEnd);
+
+  const daysOverdue = interestCalcs.daysOverdue(start, end);
+  const dailyInterest = interestCalcs.dailyInterest(debt, interestRate).toFixed(2);
+  const interestAmount = interestCalcs.interestAmount(daysOverdue, dailyInterest).toFixed(2);
+  const totalDue = interestCalcs.totalDebt(debt, interestAmount).toFixed(2);
+
+  res.render('interest_calculator_output', {
+    subtotal: subtotal,
+    gst: gst,
+    total: totalDue,
+  })
+})
 
 // GET About
 router.get('/about', (req, res, next) => {
