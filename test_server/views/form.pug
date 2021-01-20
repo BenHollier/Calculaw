@@ -82,7 +82,7 @@ block content
                             option(value="whangareidc") Whangarei District Council 
 
                         label(for = "annual_dc_rates") Annual Rates:
-                        input#annual_dc_rates.input_interest(type = "number", name = "annual_dc_rates", min = "0", placeholder = "0.00", step = ".01")
+                        input#annual_dc_rates.input_interest(type = "number", name = "annual_dc_rates", min = "0", placeholder = "0.00", value = "0.00", step = ".01")
 
                         label(for = "regional_council") Regional Council
                         select#regional_council.input_interest(name = "regional_council")
@@ -99,11 +99,11 @@ block content
                             option(value = "westcoastrc") West Coast Regional Council
 
                         label(for = "annual_rc_rates") Annual Rates:
-                        input#annual_rc_rates.input_interest(type = "number" name = "annual_rc_rates", min = "0" placeholder = "0.00" step = ".01")
+                        input#annual_rc_rates.input_interest(type = "number" name = "annual_rc_rates", min = "0" placeholder = "0.00", value = "0.00", step = ".01")
 
 
                         label(for = "settlement_date") Settlement Date:
-                        input#settlement_date.input_interest(type="date", name = "settlement_date", required)
+                        input#settlement_date.input_interest(type="date", name = "settlement_date", placeholder = "yyyy/mm/dd" required)
 
                         input.submit(type = "submit" value = "Go")
     

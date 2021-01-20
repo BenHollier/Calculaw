@@ -132,6 +132,19 @@ h3 a {
   margin: auto; 
   display: block; 
   text-align-last: center;
+  -webkit-appearance:none;
+}
+.input_radio {
+  color:#244431;
+  background: transparent;
+  border: 0px;
+  border-bottom: 1px solid #244431; 
+  border-radius: 0;
+  font-size: 1.2rem; 
+  padding: 1% 2%;
+  margin: auto; 
+  display: block; 
+  text-align-last: center;
 }
 .radio {
   border-radius: 5px;
