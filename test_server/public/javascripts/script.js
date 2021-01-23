@@ -85,7 +85,7 @@ function calculateVendorDays(ratingSystem, month, day, isLeapYear) {
       if (month === 1) {
           return day;
       } else if (month === 2) {
-          return 31 + d;
+          return 31 + day;
       } else if (month === 3) {
           if (!isLeapYear) {
               return 59 + day;
